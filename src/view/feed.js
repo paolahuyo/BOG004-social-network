@@ -1,5 +1,6 @@
 import { changeView } from "../view-controler/controler.js";
 import { saveFormPost, onGetPost, deletePost, getPost, getOnePost, updatePost } from "../Firebase/firestore.js";
+// import { async } from "regenerator-runtime";
 
 export const feed = () => {
     const viewFeedHtml = document.getElementById("root");
@@ -9,15 +10,14 @@ export const feed = () => {
     <section id="info-user">
         <div id="div-profile">
             <img id="photo-profile" src="../images/Ellipse 1.png" alt="">
-            <div>
+            <div id="info-profile">
                 <h3 id="name-user">Nombre Apellido</h3>
                 <p id="type-user">Empresa</p>
-                <p id="description-user">Hola solicito información</p>
             </div>
         </div>
         <a href="" id="edit-profile" class="button-profile"><img src="../images/edit 1.png" alt="Edit"></a>
         <div id="div-speciality">
-            <div class="speciality">Developer Js</div>
+            <div class="speciality">JavaScript</div>
             <div class="speciality">Angular</div>
             <div class="speciality">React</div>
         </div>
@@ -27,7 +27,7 @@ export const feed = () => {
         <form action="" id="form-post">
             <div id="form-textarea">
                 <label for="newpost">Nuevo Post</label>
-                <textarea name="Post" id="area-post" cols="30" rows="10" maxlength="300" placeholder="¿Qué quieres compartir hoy?">    
+                <textarea name="Post" id="area-post" cols="20" rows="3" maxlength="300" placeholder="¿Qué quieres compartir hoy?">    
                 </textarea>
             </div>
             <div id="div-check">
@@ -68,7 +68,7 @@ export const feed = () => {
         const post = postForm["area-post"];
         // saveFormPost(infoPost);
         if (!editStatus) {
-            saveFormPost(post.value);
+            saveFormPost(post.value, []);
         } else {
             // saveFormPost(infoPost);
             updatePost(id, {
@@ -105,15 +105,42 @@ export const feed = () => {
                 </div>
                     <div> ${datapost.textAreaPost} </div>
                     <div id="div-options">
-                     <a href=""><img src="../images/ninja star 1.png" alt="Ninja Likes"></a>
-                     <a href=""><img src="../images/speech-bubble 1.png" alt="Comments"></a>
-                     <a href=""><img src="../images/share 1.png" alt="Share"></a>
+                     <button id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes"><p>${datapost.likes.length}</p></button>
+                     <button class="btn-center"><img src="../images/speech-bubble 1.png" alt="Comments"></button>
+                     <button class="btn-center"><img src="../images/share 1.png" alt="Share"></button>
                     </div>
                     <hr>            
                 `;
             infoPostUser += divpostuser;
         });
         divPost.innerHTML = infoPostUser;
+
+        // like del post 
+        const btnsLike = divPost.querySelectorAll(".btn-likes");
+        btnsLike.forEach((btn) => {
+            btn.addEventListener("click", async(e) => {
+                const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
+                const idLike = e.currentTarget.id
+                console.log(e.currentTarget.id);
+                const doc = await getOnePost(e.currentTarget.id);
+                const savedPost = doc.data();
+                const likesSaves = savedPost.likes;
+                console.log(uid, likesSaves);
+                if (likesSaves.includes(uid)) {
+                    likesSaves.splice(uid)
+                    updatePost(idLike, {
+                        likes: likesSaves,
+                    })
+                    console.log("ya quite el like");
+                } else {
+                    likesSaves.push(uid);
+                    updatePost(idLike, {
+                        likes: likesSaves,
+                    })
+                    console.log("si ya puse like");
+                }
+            })
+        })
 
         const btnsDelete = divPost.querySelectorAll(".btn-delete");
 
@@ -134,6 +161,7 @@ export const feed = () => {
             btn.addEventListener('click', async(e) => {
                 const doc = await getOnePost(e.target.dataset.id);
                 const editPost = doc.data();
+
                 console.log(editPost);
 
                 postForm["area-post"].value = editPost.textAreaPost;

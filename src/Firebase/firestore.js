@@ -19,16 +19,16 @@ import { getFirestore } from "./firebase-import.js";
 // // TODO: Add SDKs for Firebase products that you want to use
 // // https://firebase.google.com/docs/web/setup#available-libraries
 
-export const saveFormPost = (textAreaPost) => {
-    addDoc(collection(db, "posts-collection"), { textAreaPost });
+export const saveFormPost = (textAreaPost, likes) => {
+    addDoc(collection(db, "posts-collection"), { textAreaPost, likes });
 };
 
 export const getPost = async() => getDocs(collection(db, "posts-collection"));
 
-export const onGetPost = async(callback) => onSnapshot(collection(db, "posts-collection"), (callback));
+export const onGetPost = (callback) => onSnapshot(collection(db, "posts-collection"), (callback));
 
 export const deletePost = async(id) => deleteDoc(doc(db, "posts-collection", id));
 
 export const getOnePost = async(id) => getDoc(doc(db, "posts-collection", id));
 
-export const updatePost = (id, newFields) => updateDoc(doc(db, "posts-collection", id), newFields)
+export const updatePost = async(id, newChanges) => updateDoc(doc(db, "posts-collection", id), newChanges);
