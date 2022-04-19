@@ -12,6 +12,7 @@
 
 ![Vista Hero!](./src/images/view%20hero.PNG)
 
+
 ## 1. ¿Que es Ninja Social Network? 
 
 Ninja en una red social que le permite a expertos de la tecnología, conectar con personas/empresas que posiblemente estén necesitando una mano para sacar adelante sus más novedosos proyectos en el mundo tech. 
@@ -20,9 +21,11 @@ En resumen, si eres un crack en temas relacionados a la tecnología como: Market
 
 Esta red social nació de la necesidad que han tenido amigos y conocidos cercanos a nuestro equipo CEO conformado por [Luz Angela Martínez](https://www.linkedin.com/in/luz-%C3%A1ngela-mart%C3%ADnez-m-65a156192/), [Paola Huyó Millán](https://www.linkedin.com/in/angelapaolahuyo/) y [Yulimar Duque de Alba](https://www.linkedin.com/in/yulimarduque/) en el desarrollo de proyectos empresariales y emprendiemtos, debido a desconocimiento en temas específicos, o problemas técnicos que puedan afectar el desarrollo de los mismos.
 
+
 ## 2. Usuarios.
 
 Esta red social está dirigida a personas que amen la tecnología, expertos del mundo tech, grandes empresas, pymes y emprendimientos de la industria tecnológica.
+
 
 ## 3. Brindamos soluciones.
 
@@ -43,16 +46,20 @@ Realizamos una encuesta enfocada a personas que se relacionan con los servicios 
 ## 4. Prototipos de baja fidelidad.
 
 **1. Hero**
+
 ![Hero](https://i.imgur.com/uxEzFyW.jpg)
 
 **2. Registro**
+
 ![Registro](https://i.imgur.com/mFWbS0l.jpg)
 
 **3. Login**
+
 ![login google](https://i.imgur.com/HaHsPNg.jpg)
 
 **4. Feed**
-![Feed](https://i.imgur.com/Z7BxN34.jpg)
+
+![feed](https://i.imgur.com/GP74WZC.jpg)
 
 
 ## 5. Prototipos de alta fidelidad.
@@ -70,7 +77,6 @@ Realizamos una encuesta enfocada a personas que se relacionan con los servicios 
 ### Vista Feed.
 
 ![Vista Feed!](./src/images/view%20feed.PNG)
-
 
 ## 6. [Flujo experiencia de usuario prototipo de alta fidelidad.](https://www.figma.com/proto/Xs1mXRrCPMwktBIVh045T1/NINJA---Social-Network?node-id=146%3A53&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=18%3A5&show-proto-sidebar=1)
 
