@@ -49,13 +49,16 @@ Realizamos una encuesta enfocada a personas que se relacionan con los servicios 
 
 ![Hero](https://i.imgur.com/uxEzFyW.jpg)
 
+
 **2. Registro**
 
 ![Registro](https://i.imgur.com/mFWbS0l.jpg)
 
+
 **3. Login**
 
-![login google](https://i.imgur.com/HaHsPNg.jpg)
+![iniciar sesion](https://i.imgur.com/dFgFTqR.jpg)
+
 
 **4. Feed**
 
@@ -77,6 +80,7 @@ Realizamos una encuesta enfocada a personas que se relacionan con los servicios 
 ### Vista Feed.
 
 ![Vista Feed!](./src/images/view%20feed.PNG)
+
 
 ## 6. [Flujo experiencia de usuario prototipo de alta fidelidad.](https://www.figma.com/proto/Xs1mXRrCPMwktBIVh045T1/NINJA---Social-Network?node-id=146%3A53&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=18%3A5&show-proto-sidebar=1)
 
