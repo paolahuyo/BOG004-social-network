@@ -43,29 +43,17 @@ Realizamos una encuesta enfocada a personas que se relacionan con los servicios 
 ## 4. Prototipos de baja fidelidad.
 
 **1. Hero**
-
-![](https://i.imgur.com/uxEzFyW.jpg)
-![](https://i.imgur.com/fty6L8j.png)
-
+![Hero](https://i.imgur.com/uxEzFyW.jpg)
 
 **2. Registro**
 ![Registro](https://i.imgur.com/mFWbS0l.jpg)
-![registro](https://i.imgur.com/BCeZIOT.jpg)
-![registro google](https://i.imgur.com/l6yZoUC.jpg)
 
 **3. Login**
-![login](https://i.imgur.com/iwpQrIA.jpg)
-![login](https://i.imgur.com/ra54mTN.jpg)
 ![login google](https://i.imgur.com/HaHsPNg.jpg)
-![iniciar sesion](https://i.imgur.com/dFgFTqR.jpg)
 
 **4. Feed**
 ![Feed](https://i.imgur.com/Z7BxN34.jpg)
-![feed](https://i.imgur.com/GP74WZC.jpg)
-![feed-Crear Post](https://i.imgur.com/eQhiWmG.jpg)
-![perfil](https://i.imgur.com/dMaPRVE.jpg)
-![perfil edit](https://i.imgur.com/nxO3AHy.jpg)
-![Publicar post](https://i.imgur.com/BEPGLhw.jpg)
+
 
 ## 5. Prototipos de alta fidelidad.
 
@@ -82,6 +70,7 @@ Realizamos una encuesta enfocada a personas que se relacionan con los servicios 
 ### Vista Feed.
 
 ![Vista Feed!](./src/images/view%20feed.PNG)
+
 
 ## 6. [Flujo experiencia de usuario prototipo de alta fidelidad.](https://www.figma.com/proto/Xs1mXRrCPMwktBIVh045T1/NINJA---Social-Network?node-id=146%3A53&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=18%3A5&show-proto-sidebar=1)
 
