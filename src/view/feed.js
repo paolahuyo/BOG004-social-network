@@ -9,19 +9,19 @@ export const feed = () => {
     <div id="feed-template">
     <section id="info-user">
         <div id="div-profile">
-            <img id="photo-profile" src="../images/Ellipse 1.png" alt="">
+            <img id="photo-profile" src="./images/Ellipse 1.png" alt="">
             <div id="info-profile">
                 <h3 id="name-user">Nombre Apellido</h3>
                 <p id="type-user">Empresa</p>
             </div>
         </div>
-        <a href="" id="edit-profile" class="button-profile"><img src="../images/edit 1.png" alt="Edit"></a>
+        <a href="" id="edit-profile" class="button-profile"><img src="./images/edit 1.png" alt="Edit"></a>
         <div id="div-speciality">
             <div class="speciality">JavaScript</div>
             <div class="speciality">Angular</div>
             <div class="speciality">React</div>
         </div>
-        <a href="" class="button-profile"><img src="../images/logout 1.png" alt="Sign Out"></a>
+        <a href="" class="button-profile"><img src="./images/logout 1.png" alt="Sign Out"></a>
     </section>
     <section id="section-post">
         <form action="" id="form-post">
@@ -37,7 +37,7 @@ export const feed = () => {
                     <input type="checkbox" id="type-post-demand" name="Búsqueda">
                     <label for="demand">Búsqueda</label>
                 </span>
-                <button id="send-post" class="button-profile" type="submit"><img src="../images/send 1.png" alt="Send"></button>
+                <button id="send-post" class="button-profile" type="submit"><img src="./images/send 1.png" alt="Send"></button>
             </div>
         </form>
     </section>
@@ -90,13 +90,13 @@ export const feed = () => {
             postfeed.push({ textAreaPost: datapost.textAreaPost });
             const divpostuser = `
                 <div id="div-profile-feed">
-                 <img class="square" src="../images/Ellipse 2.png" alt="">
+                 <img class="square" src="./images/Ellipse 2.png" alt="">
                     <div>
                         <h3 id="name-user">Nombre Apellido</h3>
                         <p id="type-user">Programador</p>
                     </div>
                     <div class="dropdown">
-                    <button id="options-post" class="dropbtn" ><img src="../images/Group 2.png" alt="Options Group"></button>
+                    <button id="options-post" class="dropbtn" ><img src="./images/Group 2.png" alt="Options Group"></button>
                         <div class="dropdown-content">
                             <button class="btn-edit" data-id="${text.id}">Editar</button>
                             <button class="btn-delete" data-id="${text.id}">Eliminar</button>                            
@@ -105,9 +105,9 @@ export const feed = () => {
                 </div>
                     <div> ${datapost.textAreaPost} </div>
                     <div id="div-options">
-                     <button id="${text.id}" class="btn-likes"><img src="../images/ninja star 1.png" alt="Ninja Likes"><p>${datapost.likes.length}</p></button>
-                     <button class="btn-center"><img src="../images/speech-bubble 1.png" alt="Comments"></button>
-                     <button class="btn-center"><img src="../images/share 1.png" alt="Share"></button>
+                     <button id="${text.id}" class="btn-likes"><img src="./images/ninja star 1.png" alt="Ninja Likes"><p>${datapost.likes.length}</p></button>
+                     <button class="btn-center"><img src="./images/speech-bubble 1.png" alt="Comments"></button>
+                     <button class="btn-center"><img src="./images/share 1.png" alt="Share"></button>
                     </div>
                     <hr>            
                 `;
