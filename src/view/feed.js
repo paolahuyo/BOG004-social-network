@@ -1,4 +1,3 @@
-import { changeView } from "../view-controler/controler.js";
 import { saveFormPost, onGetPost, deletePost, getPost, getOnePost, updatePost } from "../Firebase/firestore.js";
 // import { async } from "regenerator-runtime";
 
@@ -52,11 +51,10 @@ export const feed = () => {
     viewFeedHtml.innerHTML = view;
 
     document.querySelector("#buttonHero").addEventListener("click", () => {
-        //Recordar cambiar la ruta cuando realicemos el template del muro de la aplicación
         window.location.hash = "/";
     });
 
-    //Mostrar todos los post apenas se ingresa al feed
+    //Show posts from the moment the user access to feed
     const divPost = document.querySelector("#feed-user");
     const postForm = document.querySelector("#form-post");
     let editStatus = false;
@@ -64,13 +62,10 @@ export const feed = () => {
 
     postForm.addEventListener("submit", (e) => {
         e.preventDefault();
-
         const post = postForm["area-post"];
-        // saveFormPost(infoPost);
         if (!editStatus) {
             saveFormPost(post.value, []);
         } else {
-            // saveFormPost(infoPost);
             updatePost(id, {
                 textAreaPost: post.value,
             })
@@ -79,7 +74,7 @@ export const feed = () => {
         postForm.reset();
     });
 
-    //Seleccionamos de la data lo que queremos que se muestre en el feed (contenido del post)
+    //Add new post content to the feed
 
     onGetPost((response) => {
         let infoPostUser = "";
@@ -115,35 +110,40 @@ export const feed = () => {
         });
         divPost.innerHTML = infoPostUser;
 
-        // like del post 
+        // Event for post likes
         const btnsLike = divPost.querySelectorAll(".btn-likes");
         btnsLike.forEach((btn) => {
             btn.addEventListener("click", async(e) => {
                 const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
                 const idLike = e.currentTarget.id
-                console.log(e.currentTarget.id);
-                const doc = await getOnePost(e.currentTarget.id);
-                const savedPost = doc.data();
-                const likesSaves = savedPost.likes;
-                console.log(uid, likesSaves);
-                if (likesSaves.includes(uid)) {
-                    likesSaves.splice(uid)
-                    updatePost(idLike, {
-                        likes: likesSaves,
-                    })
-                    console.log("ya quite el like");
-                } else {
-                    likesSaves.push(uid);
-                    updatePost(idLike, {
-                        likes: likesSaves,
-                    })
-                    console.log("si ya puse like");
+                //console.log(e.currentTarget.id);
+                try{
+                    const doc = await getOnePost(e.currentTarget.id);
+                    const savedPost = doc.data();
+                    const likesSaves = savedPost.likes;
+                    //console.log(uid, likesSaves);
+                    if (likesSaves.includes(uid)) {
+                        likesSaves.splice(uid)
+                        updatePost(idLike, {
+                            likes: likesSaves,
+                        })
+                        //console.log("ya quite el like");
+                    } else {
+                        likesSaves.push(uid);
+                        updatePost(idLike, {
+                            likes: likesSaves,
+                        })
+                        //console.log("si ya puse like");
+                    }   
+                }
+                catch(e){
+                    console.log(e)
                 }
             })
         })
-
         const btnsDelete = divPost.querySelectorAll(".btn-delete");
 
+        //Delete Post Event
         btnsDelete.forEach((btn) => {
             btn.addEventListener("click", ({ target: { dataset } }) => {
                 if (confirm("¿Estás seguro de eliminar este post?") === true) {
@@ -155,25 +155,54 @@ export const feed = () => {
             });
         });
 
+        //Edit Post Event
         const btnsEdit = divPost.querySelectorAll(".btn-edit");
         console.log(btnsEdit);
         btnsEdit.forEach((btn) => {
             btn.addEventListener('click', async(e) => {
                 const doc = await getOnePost(e.target.dataset.id);
                 const editPost = doc.data();
-
-                console.log(editPost);
-
+                //console.log(editPost);
                 postForm["area-post"].value = editPost.textAreaPost;
-
                 editStatus = true;
                 id = doc.id;
-
                 postForm['send-post'].innerHTML
             });
         });
-
         return viewFeedHtml;
     });
 
 };
+
+
+/* 
+btn.addEventListener("click", (e) => {
+                const uid = JSON.parse(localStorage.getItem("userInfo")).uid;
+                const idLike = e.currentTarget.id
+                //console.log(e.currentTarget.id);
+                getOnePost(e.currentTarget.id)
+                .then( (doc)=> {
+                    const savedPost = doc.data();
+                    const likesSaves = savedPost.likes;
+                    //console.log(uid, likesSaves);
+                    if (likesSaves.includes(uid)) {
+                    likesSaves.splice(uid)
+                    updatePost(idLike, {
+                        likes: likesSaves,
+                    })
+                    //console.log("ya quite el like");
+                    } else {
+                    likesSaves.push(uid);
+                    updatePost(idLike, {
+                        likes: likesSaves,
+                    })
+                    //console.log("si ya puse like");
+                }
+                })
+                .catch((e) => {
+                    console.log(e)
+                });
+
+                
+            })
+*/

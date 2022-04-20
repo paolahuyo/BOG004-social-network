@@ -2,8 +2,7 @@ import { createUser } from "./controller-firebase.js";
 import { goLoginUser } from "./controller-firebase.js";
 import { loginGoogle } from "./controller-firebase.js";
 
-
-//Función FIREBASE para registro de nuevos usuarios
+//Our functions based on firebase functions
 export const registerUser = (email, password) => {
     return createUser(email, password);
 };

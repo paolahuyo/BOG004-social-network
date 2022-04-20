@@ -57,7 +57,7 @@ export const login = () => {
 
         loginUser(emailLogin, passwordLogin)
             .then(response => {
-                changeView("#/feed")
+                window.location.hash = "/feed";
                 console.log(response);
                 localStorage.setItem("userInfo", JSON.stringify(response.user))
             })

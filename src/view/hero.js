@@ -1,5 +1,3 @@
-import { changeView } from "../view-controler/controler.js";
-
 export const hero = () => {
     const viewHeroHtml = document.getElementById("root");
     const view = `

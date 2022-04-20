@@ -1,11 +1,9 @@
 import {
-    initializeApp,
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     GoogleAuthProvider, 
-    signInWithPopup,
-    onAuthStateChanged,
+    signInWithPopup
 } from "./firebase-import.js";
 
 export const createUser = (email, password) => {

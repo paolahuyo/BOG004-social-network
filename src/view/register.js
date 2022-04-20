@@ -1,6 +1,5 @@
 import { changeView } from "../view-controler/controler.js";
 import { registerUser } from "../Firebase/auth.js";
-import { feed } from "./feed.js";
 import { googleUser } from "../Firebase/auth.js";
 import { GoogleAuthProvider } from "../Firebase/firebase-import.js";
 
