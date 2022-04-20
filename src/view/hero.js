@@ -24,8 +24,6 @@ export const hero = () => {
     document.querySelector("#btn-loginHero").addEventListener("click", () => {
         window.location.hash = "/login";
     });
-    // document.querySelector("#btn-feed").addEventListener("click", () => {
-    //     window.location.hash = "/feed";
-    // });
+
     return viewHeroHtml;
 };
